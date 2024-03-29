@@ -12,7 +12,6 @@ services:
       - ./:/app
       - /app/node_modules
   postgresql:
-    # Postgres image with PostGIS extension for geospatial data:
     image: postgres:alpine
     env_file:
       - ./.env
