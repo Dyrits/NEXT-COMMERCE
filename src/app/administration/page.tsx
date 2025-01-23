@@ -3,7 +3,7 @@ import format from "@/lib/formatters";
 import {  getDashboardData } from "@/lib/repositories";
 
 
-export default async function AdminDashboard() {
+export default async function AdministrationDashboard() {
   const data = await getDashboardData();
 
   return (

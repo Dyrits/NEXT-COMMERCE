@@ -1,16 +1,21 @@
-version: '3.8'
-
 services:
   next:
     restart: on-failure
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    build: ./
     ports:
       - "3000:3000"
-    volumes:
-      - ./:/app
-      - /app/node_modules
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: sync+restart
+          path: ./
+          target: /app
+          ignore:
+            - ./node_modules
+        - action: rebuild
+          path: ./package.json
   postgresql:
     image: postgres:alpine
     env_file:
