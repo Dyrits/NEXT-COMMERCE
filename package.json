@@ -1,14 +1,4 @@
 {
-  "name": "next-commerce",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "docker:prisma": "docker compose exec next npx prisma"
-  },
   "dependencies": {
     "@prisma/client": "^5.11.0",
     "@radix-ui/react-label": "^2.1.1",
@@ -20,9 +10,11 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.2",
     "@types/node": "^20.11.30",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -34,5 +26,15 @@
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
-  }
+  },
+  "name": "next-commerce",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "check": "npx @biomejs/biome check --write",
+    "dev": "next dev",
+    "docker:prisma": "docker compose exec next npx prisma",
+    "start": "next start"
+  },
+  "version": "0.1.0"
 }

@@ -1,5 +1,5 @@
-import { PageTitle } from "@/components/@administration/PageTitle";
 import ProductForm from "@/components/@administration/@products/ProductForm";
+import { PageTitle } from "@/components/@administration/PageTitle";
 
 export default function ProductsCreatePage() {
   return (
@@ -7,5 +7,5 @@ export default function ProductsCreatePage() {
       <PageTitle>Add a new product</PageTitle>
       <ProductForm />
     </>
-  )
+  );
 }

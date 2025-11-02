@@ -1,7 +1,6 @@
 import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import { PageTitle } from "@/components/@administration/PageTitle";
+import { Button } from "@/components/ui/button";
 import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function AdministrationProductsPage() {
@@ -9,7 +8,9 @@ export default function AdministrationProductsPage() {
     <>
       <div className={"flex justify-between items-center gap-4"}>
         <PageTitle>Products</PageTitle>
-        <Button asChild><Link href={"/administration/products/add"}>Add product</Link></Button>
+        <Button asChild>
+          <Link href={"/administration/products/add"}>Add product</Link>
+        </Button>
       </div>
       <ProductTable />
     </>
@@ -21,13 +22,17 @@ function ProductTable() {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className={"w-0"}><span className={"sr-only"}>Available for purchase</span></TableHead>
+          <TableHead className={"w-0"}>
+            <span className={"sr-only"}>Available for purchase</span>
+          </TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Price</TableHead>
           <TableHead>Orders</TableHead>
-          <TableHead className={"w-0"}><span className={"sr-only"}>Actions</span></TableHead>
+          <TableHead className={"w-0"}>
+            <span className={"sr-only"}>Actions</span>
+          </TableHead>
         </TableRow>
       </TableHeader>
     </Table>
-  )
+  );
 }

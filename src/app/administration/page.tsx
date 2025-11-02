@@ -1,16 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import format from "@/lib/formatters";
-import {  getDashboardData } from "@/lib/repositories";
-
+import { getDashboardData } from "@/lib/repositories";
 
 export default async function AdministrationDashboard() {
   const data = await getDashboardData();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <DashboardCard title="Sales" description={`${format.number(data.sales.count)} orders`} body={format.currency(data.sales.amount)} />
-      <DashboardCard title="Customers" description={`${format.currency(data.users.value)} average value`} body={format.number(data.users.count)} />
-      <DashboardCard title="Active products" description={`${format.number(data.products.unavailable)} inactive products`} body={format.number(data.products.available)} />
+      <DashboardCard body={format.currency(data.sales.amount)} description={`${format.number(data.sales.count)} orders`} title="Sales" />
+      <DashboardCard body={format.number(data.users.count)} description={`${format.currency(data.users.value)} average value`} title="Customers" />
+      <DashboardCard
+        body={format.number(data.products.available)}
+        description={`${format.number(data.products.unavailable)} inactive products`}
+        title="Active products"
+      />
     </div>
   );
 }
@@ -28,7 +31,9 @@ function DashboardCard({ title, description, body }: DashboardCardProps) {
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent><p>{body}</p></CardContent>
+      <CardContent>
+        <p>{body}</p>
+      </CardContent>
     </Card>
   );
 }

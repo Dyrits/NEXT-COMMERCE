@@ -1,5 +1,3 @@
 export default function Home() {
-  return (
-    <h1>The application is up and running.</h1>
-  );
+  return <h1>The application is up and running.</h1>;
 }
